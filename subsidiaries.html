@@ -3,21 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subsidiaries · Mitekaro Group (MGL)</title>
+    <title>MGL · Subsidiaries | Agritech & Logistics</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #0a3d62;
             --secondary: #1e90ff;
             --accent: #00b894;
-            --accent-soft: #6ab04c;
             --light: #f7f9fc;
-            --light-warm: #fef9e7;
             --dark: #2d3436;
             --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            --shadow-soft: 0 15px 30px rgba(10, 61, 98, 0.08);
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --transition: all 0.3s ease;
         }
 
         * {
@@ -27,12 +24,12 @@
         }
 
         body {
-            font-family: 'Quicksand', sans-serif;
+            font-family: 'Roboto', sans-serif;
             line-height: 1.6;
-            color: #374151;
-            background: linear-gradient(135deg, #f9fafc 0%, #ffffff 100%);
+            color: #333;
+            background-color: #f9f9f9;
             overflow-x: hidden;
-            padding-top: 80px;
+            padding-top: 80px; /* fixed header */
         }
 
         h1, h2, h3, h4, h5 {
@@ -49,7 +46,7 @@
             padding: 0 15px;
         }
 
-        /* ---------- STATIONARY HEADER (same robust structure) ---------- */
+        /* STATIONARY HEADER (exactly as provided) */
         header {
             background-color: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
@@ -74,13 +71,20 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem 0;
+            position: relative;
         }
 
         .logo {
             display: flex;
             align-items: center;
+            animation: fadeIn 1s ease;
             text-decoration: none;
             transition: var(--transition);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
         }
 
         .logo-container {
@@ -94,7 +98,7 @@
             color: white;
             width: 48px;
             height: 48px;
-            border-radius: 16px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -121,22 +125,44 @@
             left: 100%;
         }
 
+        .logo:hover .logo-icon {
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 6px 20px rgba(10, 61, 98, 0.3);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
         .logo-text h1 {
             font-size: 1.5rem;
             margin-bottom: 0;
             color: var(--primary);
             font-weight: 700;
             letter-spacing: -0.5px;
+            transition: var(--transition);
+        }
+
+        .logo:hover .logo-text h1 {
+            color: var(--secondary);
         }
 
         .logo-text span {
-            background: linear-gradient(135deg, var(--accent), #6ab04c);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 600;
+            color: var(--accent);
+            font-weight: 500;
             font-size: 0.8rem;
             letter-spacing: 1px;
+            transition: var(--transition);
+        }
+
+        .logo:hover .logo-text span {
+            color: var(--secondary);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
         }
 
         nav ul {
@@ -145,16 +171,20 @@
             gap: 10px;
         }
 
+        nav ul li {
+            position: relative;
+        }
+
         nav ul li a {
             text-decoration: none;
             color: var(--dark);
-            font-weight: 600;
+            font-weight: 500;
             font-size: 0.95rem;
             transition: var(--transition);
             display: flex;
             align-items: center;
             padding: 0.8rem 1.2rem;
-            border-radius: 12px;
+            border-radius: 8px;
             position: relative;
             overflow: hidden;
             background: transparent;
@@ -165,6 +195,7 @@
             margin-right: 8px;
             font-size: 0.9rem;
             width: 18px;
+            text-align: center;
         }
 
         nav ul li a::before {
@@ -174,11 +205,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(30, 144, 255, 0.08) 0%, rgba(0, 184, 148, 0.08) 100%);
+            background: linear-gradient(135deg, rgba(30, 144, 255, 0.1) 0%, rgba(0, 184, 148, 0.1) 100%);
             opacity: 0;
             transition: var(--transition);
             z-index: -1;
-            border-radius: 12px;
+            border-radius: 8px;
         }
 
         nav ul li a:hover::before {
@@ -196,13 +227,8 @@
             box-shadow: 0 4px 15px rgba(10, 61, 98, 0.2);
         }
 
-        .has-dropdown > a::after {
-            content: "\f078";
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            margin-left: 6px;
-            font-size: 0.7rem;
-            transition: var(--transition);
+        nav ul li a.active:hover {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
         }
 
         .dropdown-menu {
@@ -211,8 +237,8 @@
             left: 0;
             background-color: white;
             min-width: 220px;
-            box-shadow: 0 20px 40px rgba(10, 61, 98, 0.15);
-            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-radius: 12px;
             opacity: 0;
             visibility: hidden;
             transform: translateY(15px);
@@ -222,6 +248,7 @@
             flex-direction: column;
             padding: 10px;
             border: 1px solid rgba(10, 61, 98, 0.1);
+            overflow: hidden;
         }
 
         .has-dropdown:hover .dropdown-menu {
@@ -230,9 +257,37 @@
             transform: translateY(0);
         }
 
+        .dropdown-menu li {
+            margin: 0;
+            width: 100%;
+        }
+
         .dropdown-menu a {
             padding: 12px 15px;
-            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            border-radius: 6px;
+            margin: 3px 0;
+            font-size: 0.9rem;
+        }
+
+        .dropdown-menu a:hover {
+            background: linear-gradient(135deg, rgba(30, 144, 255, 0.1) 0%, rgba(0, 184, 148, 0.1) 100%);
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .has-dropdown > a::after {
+            content: "\f078";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            margin-left: 6px;
+            font-size: 0.7rem;
+            transition: var(--transition);
+        }
+
+        .has-dropdown:hover > a::after {
+            transform: rotate(180deg);
         }
 
         .nav-cta {
@@ -240,23 +295,44 @@
         }
 
         .nav-cta a {
-            background: linear-gradient(135deg, var(--accent) 0%, #6ab04c 100%);
+            background: linear-gradient(135deg, var(--accent) 0%, #00a085 100%);
             color: white;
             padding: 0.8rem 1.8rem;
-            border-radius: 40px;
+            border-radius: 8px;
             font-weight: 600;
             text-decoration: none;
             transition: var(--transition);
-            box-shadow: 0 8px 20px rgba(0, 184, 148, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 184, 148, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
             overflow: hidden;
         }
 
+        .nav-cta a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: 0.5s;
+        }
+
+        .nav-cta a:hover::before {
+            left: 100%;
+        }
+
         .nav-cta a:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 12px 30px rgba(106, 176, 76, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 184, 148, 0.4);
+            background: linear-gradient(135deg, #00a085 0%, var(--accent) 100%);
+        }
+
+        .nav-cta a i {
+            margin-right: 8px;
         }
 
         .mobile-menu-btn {
@@ -266,458 +342,277 @@
             border: none;
             width: 44px;
             height: 44px;
-            border-radius: 14px;
+            border-radius: 10px;
             font-size: 1.3rem;
             cursor: pointer;
             transition: var(--transition);
+            position: relative;
+            z-index: 1001;
             box-shadow: 0 4px 12px rgba(10, 61, 98, 0.2);
+        }
+
+        .mobile-menu-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(10, 61, 98, 0.3);
         }
 
         header.scrolled {
             padding: 0.5rem 0;
-            box-shadow: 0 8px 30px rgba(10, 61, 98, 0.12);
+            box-shadow: 0 5px 20px rgba(10, 61, 98, 0.15);
+            background-color: rgba(255, 255, 255, 0.98);
+            transform: translateY(0) !important;
+        }
+
+        header.scrolled .logo-icon {
+            width: 42px;
+            height: 42px;
+            font-size: 1.3rem;
+        }
+
+        header.scrolled .logo-text h1 {
+            font-size: 1.3rem;
         }
 
         .nav-overlay {
             display: none;
         }
 
-        /* ---------- FRIENDLY HERO ---------- */
-        .page-hero {
-            background: radial-gradient(circle at 10% 30%, rgba(30,144,255,0.1) 0%, transparent 30%),
-                        radial-gradient(circle at 90% 70%, rgba(0,184,148,0.1) 0%, transparent 30%),
-                        linear-gradient(135deg, #0a3d62 0%, #1e4f7a 100%);
+        /* animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+        .fade-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-left.visible { opacity: 1; transform: translateX(0); }
+        .fade-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-right.visible { opacity: 1; transform: translateX(0); }
+
+        /* HERO (shorter, subsidiaries focus) */
+        .hero {
+            background: linear-gradient(rgba(10, 61, 98, 0.85), rgba(10, 61, 98, 0.9)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
             color: white;
             text-align: center;
-            padding: 130px 0 90px;
+            padding: 120px 0 80px;
             margin-top: -80px;
+        }
+
+        .hero h2 { font-size: 3rem; color: white; }
+        .hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto; color: white; }
+
+        /* SUBSIDIARIES SECTION (main) */
+        .subsidiaries-main {
+            background-color: white;
+            padding: 5rem 0;
+        }
+
+        .subsidiaries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .sub-card {
+            background: var(--light);
+            border-radius: 25px;
+            padding: 2.8rem 2rem 2.5rem;
+            box-shadow: 0 15px 35px rgba(10, 61, 98, 0.08);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
-        }
-
-        .page-hero::before {
-            content: "☁️☁️☁️";
-            position: absolute;
-            font-size: 8rem;
-            top: 20px;
-            left: 5%;
-            opacity: 0.2;
-            white-space: nowrap;
-            animation: floatCloud 20s linear infinite;
-        }
-
-        .page-hero::after {
-            content: "🚜 📦 🚛 🌱";
-            position: absolute;
-            font-size: 4rem;
-            bottom: 20px;
-            right: 5%;
-            opacity: 0.2;
-            animation: floatCloud 18s reverse infinite;
-        }
-
-        @keyframes floatCloud {
-            0% { transform: translateX(-10px); }
-            50% { transform: translateX(20px); }
-            100% { transform: translateX(-10px); }
-        }
-
-        .page-hero h2 {
-            font-size: 3.2rem;
-            color: white;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .page-hero p {
-            font-size: 1.3rem;
-            max-width: 600px;
-            margin: 0 auto;
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(5px);
-            padding: 0.8rem 2rem;
-            border-radius: 60px;
-            font-weight: 500;
-        }
-
-        .breadcrumb {
-            margin-top: 1.5rem;
-            font-size: 1rem;
-            color: rgba(255,255,255,0.8);
-        }
-
-        .breadcrumb a {
-            color: white;
-            text-decoration: none;
-            border-bottom: 2px dotted var(--accent);
-        }
-
-        /* ---------- CREATIVE SUBSIDIARIES SECTION ---------- */
-        .subsidiaries-section {
-            padding: 5rem 0 6rem;
-            background: #fbfdff;
-        }
-
-        .section-title {
+            border: 2px solid transparent;
             text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            position: relative;
-            display: inline-block;
-            background: linear-gradient(135deg, #0a3d62, #1e90ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .section-title h2::after {
-            content: '✨';
-            position: absolute;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 2rem;
-            background: none;
-            width: auto;
-            height: auto;
-        }
-
-        .subsidiary-showcase {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 3rem;
-            margin: 3rem 0;
-        }
-
-        /* card with super-friendly vibes */
-        .subsidiary-premium {
-            background: white;
-            border-radius: 40px;
-            padding: 3rem 2.5rem;
-            box-shadow: var(--shadow-soft);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-            flex: 0 1 500px;
-            max-width: 550px;
+            backdrop-filter: blur(5px);
             display: flex;
             flex-direction: column;
-            align-items: center;
-            text-align: center;
-            border: 2px solid rgba(30,144,255,0.1);
         }
 
-        .subsidiary-premium::before {
+        .sub-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="8" fill="%231e90ff" opacity="0.05"/><circle cx="45" cy="30" r="12" fill="%2300b894" opacity="0.05"/></svg>');
-            opacity: 0.6;
+            background: linear-gradient(135deg, rgba(30,144,255,0.08), rgba(0,184,148,0.08));
+            opacity: 0;
+            transition: var(--transition);
             z-index: 0;
-            pointer-events: none;
         }
 
-        .subsidiary-premium:hover {
+        .sub-card:hover::before { opacity: 1; }
+
+        .sub-card::after {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, var(--secondary), var(--accent), var(--secondary));
+            border-radius: 27px;
+            z-index: -1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .sub-card:hover::after { opacity: 1; animation: rotate 4s linear infinite; }
+        @keyframes rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        .sub-card:hover {
             transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 30px 50px rgba(10, 61, 98, 0.15);
-            border-color: var(--accent);
+            box-shadow: 0 30px 45px rgba(10,61,98,0.2);
         }
 
-        .premium-icon {
-            width: 150px;
-            height: 150px;
-            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-            background: linear-gradient(145deg, #ffeaa7, #fab1a0);
+        .sub-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(145deg, var(--secondary), var(--accent));
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 2rem;
-            position: relative;
-            z-index: 2;
-            box-shadow: 0 20px 25px rgba(0,0,0,0.1);
-            transition: all 0.5s ease;
-            animation: morph 8s ease-in-out infinite;
+            margin: 0 auto 2rem;
+            transition: all 0.6s ease;
+            box-shadow: 0 15px 25px rgba(30,144,255,0.4);
         }
 
-        @keyframes morph {
-            0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
-            50% { border-radius: 60% 40% 30% 70% / 50% 40% 50% 60%; }
-            100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+        .sub-card:hover .sub-icon {
+            border-radius: 50%;
+            transform: rotate(360deg) scale(1.1);
+            background: linear-gradient(145deg, var(--accent), var(--secondary));
         }
 
-        .subsidiary-premium:nth-child(2) .premium-icon {
-            background: linear-gradient(145deg, #b2f0e5, #81ecec);
+        .sub-icon i {
+            font-size: 3.2rem;
+            color: white;
+            transition: inherit;
         }
 
-        .premium-icon i {
-            font-size: 5rem;
-            color: #0a3d62;
-            filter: drop-shadow(2px 4px 4px rgba(0,0,0,0.1));
-        }
-
-        .subsidiary-premium h3 {
-            font-size: 2.8rem;
-            margin-bottom: 0.2rem;
-            background: linear-gradient(135deg, #0a3d62, #1e90ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            position: relative;
-            z-index: 2;
+        .sub-card h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            letter-spacing: -0.5px;
         }
 
         .sub-domain {
-            background: rgba(0,184,148,0.15);
-            color: var(--primary);
-            font-weight: 600;
-            padding: 0.5rem 2rem;
-            border-radius: 60px;
-            margin-bottom: 1.5rem;
             font-size: 1.1rem;
-            border: 2px dashed var(--accent);
-            position: relative;
-            z-index: 2;
-            backdrop-filter: blur(4px);
-        }
-
-        .sub-domain i {
-            margin-right: 8px;
+            font-weight: 500;
             color: var(--accent);
+            margin-bottom: 1.2rem;
+            background: rgba(0,184,148,0.1);
+            display: inline-block;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            align-self: center;
         }
 
-        .premium-description {
-            position: relative;
-            z-index: 2;
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
+        .sub-card p {
             color: #2d3436;
-        }
-
-        .feature-list {
-            list-style: none;
-            text-align: left;
-            margin: 1rem 0 1.5rem;
-            width: 100%;
-            position: relative;
-            z-index: 2;
-            background: rgba(255,255,255,0.7);
-            padding: 1.5rem;
-            border-radius: 30px;
-            backdrop-filter: blur(4px);
-        }
-
-        .feature-list li {
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 12px;
+            margin-bottom: 1.5rem;
             font-size: 1rem;
+            line-height: 1.6;
         }
 
-        .feature-list li i {
-            color: var(--accent);
-            font-size: 1.4rem;
-            width: 28px;
-        }
-
-        .btn-friendly {
-            background: white;
-            border: 3px solid var(--secondary);
+        .sub-link {
+            margin-top: auto;
+            font-weight: 600;
             color: var(--primary);
-            padding: 1rem 2.5rem;
-            border-radius: 60px;
-            font-weight: 700;
-            font-size: 1.1rem;
             text-decoration: none;
-            transition: var(--transition);
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            position: relative;
-            z-index: 2;
-            box-shadow: 0 8px 0 #0a3d62;
+            justify-content: center;
+            gap: 8px;
+            transition: var(--transition);
+            padding: 0.6rem 0;
+            border-top: 1px dashed rgba(10,61,98,0.2);
         }
 
-        .btn-friendly:hover {
-            background: var(--secondary);
-            color: white;
-            transform: translateY(-5px);
-            box-shadow: 0 12px 0 #0a3d62;
+        .sub-link:hover {
+            color: var(--accent);
+            gap: 12px;
         }
 
-        .btn-friendly i {
-            transition: transform 0.2s;
+        /* agritech badge */
+        .agritech-badge {
+            background: rgba(30,144,255,0.15);
+            color: var(--primary);
+            font-size: 0.9rem;
+            padding: 0.25rem 1rem;
+            border-radius: 30px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 0.8rem;
         }
 
-        .btn-friendly:hover i {
-            transform: translateX(5px);
+        /* synergy section */
+        .synergy {
+            background: linear-gradient(135deg, #f0f7ff, #e0ffed);
+            padding: 4rem 0;
         }
+        .synergy h2 { color: var(--primary); }
 
-        /* synergy box with emojis */
-        .synergy-box {
-            background: linear-gradient(135deg, #0a3d62 0%, #1e4f7a 100%);
-            color: white;
-            padding: 3rem;
-            border-radius: 70px 70px 70px 70px / 50px 50px 50px 50px;
-            margin-top: 5rem;
-            text-align: center;
-            position: relative;
-            border: 5px solid rgba(255,255,255,0.3);
-        }
-
-        .synergy-box h3 {
-            color: white;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .synergy-box p {
-            font-size: 1.3rem;
-            max-width: 800px;
-            margin: 1rem auto;
-            background: rgba(255,255,255,0.1);
-            padding: 1rem 2rem;
-            border-radius: 60px;
-        }
-
-        .floating-emoji {
-            font-size: 3rem;
-            position: absolute;
-            animation: float 3s infinite;
-        }
-
-        .emoji1 { top: -20px; left: 10%; }
-        .emoji2 { bottom: -20px; right: 15%; animation-delay: 1s; }
-
-        /* footer (soft version) */
+        /* footer same as original */
         footer {
-            background: linear-gradient(135deg, #0a3d62 0%, #1e4f7a 100%);
+            background-color: var(--primary);
             color: white;
             padding: 4rem 0 2rem;
-            border-top: 8px solid var(--accent);
         }
-
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-bottom: 2rem;
         }
-
-        .footer-logo h3 {
-            color: white;
-        }
-
-        .footer-links h4, .footer-contact h4 {
-            color: white;
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-
+        .footer-logo h3 { color: white; }
+        .footer-links h4, .footer-contact h4 { color: white; position: relative; }
         .footer-links h4::after, .footer-contact h4::after {
-            content: '✨';
+            content: '';
             position: absolute;
             bottom: -8px;
             left: 0;
-            font-size: 1.2rem;
-            background: none;
-            width: auto;
-            height: auto;
+            width: 40px;
+            height: 3px;
+            background-color: var(--accent);
         }
+        .footer-links ul { list-style: none; }
+        .footer-links ul li { margin-bottom: 0.8rem; }
+        .footer-links ul li a { color: #ddd; text-decoration: none; transition: var(--transition); }
+        .footer-links ul li a:hover { color: var(--accent); padding-left: 5px; }
+        .footer-contact p { margin-bottom: 1rem; display: flex; align-items: center; }
+        .footer-contact i { margin-right: 10px; color: var(--accent); }
+        .copyright { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
 
-        .footer-links ul li a {
-            color: #ddd;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-links ul li a:hover {
-            color: var(--accent);
-            padding-left: 8px;
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 2px dashed rgba(255,255,255,0.2);
-        }
-
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* responsive */
         @media (max-width: 992px) {
-            .mobile-menu-btn {
-                display: flex;
-            }
+            .mobile-menu-btn { display: flex; }
             nav ul {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 300px;
-                height: 100vh;
-                background: white;
-                flex-direction: column;
-                padding: 100px 30px 30px;
-                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
-                transition: 0.3s;
-                z-index: 999;
-                border-radius: 30px 0 0 30px;
+                position: fixed; top:0; right:-100%; width:300px; height:100vh;
+                background: white; flex-direction: column; padding: 100px 30px 30px;
+                box-shadow: -5px 0 30px rgba(0,0,0,0.1); transition: var(--transition);
+                z-index: 999; gap:0;
             }
-            nav ul.active {
-                right: 0;
-            }
-            .nav-overlay {
-                display: block;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0,0,0,0.3);
-                backdrop-filter: blur(3px);
-                z-index: 998;
-                opacity: 0;
-                visibility: hidden;
-                transition: 0.3s;
-            }
-            .nav-overlay.active {
-                opacity: 1;
-                visibility: visible;
-            }
-            .dropdown-menu {
-                position: static;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                box-shadow: none;
-                background: #f0f7ff;
-                max-height: 0;
-                overflow: hidden;
-                padding: 0;
-            }
-            .dropdown-menu.active {
-                max-height: 500px;
-                padding: 10px;
-            }
+            nav ul.active { right: 0; }
+            nav ul li a { justify-content: flex-start; padding: 1rem; }
+            .dropdown-menu { position: static; opacity:1; visibility:visible; transform:none; max-height:0; overflow:hidden; padding:0; background: transparent; }
+            .has-dropdown.active .dropdown-menu { max-height:500px; padding:10px; }
+            .nav-overlay { position: fixed; inset:0; background: rgba(0,0,0,0.5); z-index:998; opacity:0; visibility:hidden; transition: var(--transition); display: block; }
+            .nav-overlay.active { opacity:1; visibility:visible; }
         }
     </style>
 </head>
 <body>
+    <!-- STATIONARY HEADER (identical structure) -->
     <header id="mainHeader">
         <div class="container">
             <div class="header-content">
@@ -726,7 +621,7 @@
                         <div class="logo-icon">MGL</div>
                         <div class="logo-text">
                             <h1>Mitekaro Group</h1>
-                            <span>growing together 🌱</span>
+                            <span>Multisector Solutions Provider</span>
                         </div>
                     </div>
                 </a>
@@ -738,14 +633,14 @@
                 
                 <nav>
                     <ul id="navMenu">
-                        <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
                         <li class="has-dropdown">
-                            <a href="#about"><i class="fas fa-building"></i> About</a>
+                            <a href="about.html"><i class="fas fa-building"></i> About</a>
                             <ul class="dropdown-menu">
-                                <li><a href="#about"><i class="fas fa-info-circle"></i> Company Overview</a></li>
-                                <li><a href="#values"><i class="fas fa-star"></i> Our Values</a></li>
-                                <li><a href="#global"><i class="fas fa-globe"></i> Global Presence</a></li>
-                                <li><a href="leadership.html"><i class="fas fa-users"></i> Leadership</a></li>
+                                <li><a href="about.html"><i class="fas fa-info-circle"></i> Company Overview</a></li>
+                                <li><a href="values.html"><i class="fas fa-star"></i> Our Values</a></li>
+                                <li><a href="global.html"><i class="fas fa-globe"></i> Global Presence</a></li>
+                                <li><a href="leadership.html"><i class="fas fa-users"></i> Leadership Team</a></li>
                             </ul>
                         </li>
                         <li class="has-dropdown">
@@ -758,10 +653,9 @@
                             </ul>
                         </li>
                         <li><a href="subsidiaries.html" class="active"><i class="fas fa-network-wired"></i> Subsidiaries</a></li>
-                        <li><a href="leadership.html"><i class="fas fa-users"></i> Leadership</a></li>
-                        <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                        <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
                         <li class="nav-cta">
-                            <a href="#contact"><i class="fas fa-paper-plane"></i> Let's chat</a>
+                            <a href="contact.html"><i class="fas fa-paper-plane"></i> Get In Touch</a>
                         </li>
                     </ul>
                 </nav>
@@ -769,155 +663,187 @@
         </div>
     </header>
 
-    <!-- playful hero -->
-    <section class="page-hero" id="home">
+    <!-- HERO (subsidiaries focus) -->
+    <section class="hero" id="home">
         <div class="container">
-            <h2 class="fade-up">our subsidiaries 🌟</h2>
-            <p class="fade-up" style="animation-delay: 0.1s;">friendly businesses with big hearts</p>
-            <div class="breadcrumb fade-up" style="animation-delay: 0.2s;">
-                <a href="index.html">🏡 home</a> / <span>subsidiaries</span>
-            </div>
+            <h2 class="fade-up">Our Specialized Subsidiaries</h2>
+            <p class="fade-up" style="animation-delay:0.2s">Driving innovation in agritech, commodity trade, and logistics — united under Mitekaro Group.</p>
         </div>
     </section>
 
-    <!-- VUNA & ASHOKO with creative & friendly twist -->
-    <section class="subsidiaries-section" id="subsidiaries">
+    <!-- MAIN SUBSIDIARIES SECTION (vuna, mavuntrade, ashoko) -->
+    <section class="subsidiaries-main">
         <div class="container">
             <div class="section-title">
-                <h2 class="fade-up">meet our ventures</h2>
-                <p class="fade-up" style="animation-delay: 0.1s;">tech that feeds & logistics that moves ✨</p>
+                <h2 class="fade-up">Companies of MGL</h2>
+                <p class="fade-up" style="animation-delay:0.1s">Three synergistic businesses transforming agriculture and logistics</p>
             </div>
 
-            <div class="subsidiary-showcase">
-                <!-- VUNA - friendly agri-tech -->
-                <div class="subsidiary-premium fade-up" style="animation-delay: 0.2s;">
-                    <div class="premium-icon">
-                        <i class="fas fa-seedling"></i>
+            <div class="subsidiaries-grid">
+                <!-- VunaMarketplace (agritech) -->
+                <div class="sub-card fade-up" style="animation-delay:0.1s">
+                    <div class="sub-icon">
+                        <i class="fas fa-leaf"></i>
                     </div>
-                    <h3>vunamarketplace</h3>
-                    <div class="sub-domain">
-                        <i class="fas fa-globe"></i> www.vunamarketplace.org
-                    </div>
-                    <div class="premium-description">
-                        <p>🌽 <strong>from farmer to you, with love</strong> — Vuna is a sunny online space where farmers sell fresh harvest directly to families and shops. no middlemen, just good food & fair prices.</p>
-                    </div>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check-circle"></i> farmers list fruits, veggies & grains</li>
-                        <li><i class="fas fa-check-circle"></i> you order, they harvest — super fresh!</li>
-                        <li><i class="fas fa-check-circle"></i> fair trade & transparent prices</li>
-                        <li><i class="fas fa-check-circle"></i> mobile app even works offline</li>
-                    </ul>
-                    <a href="https://www.vunamarketplace.org" target="_blank" class="btn-friendly"><i class="fas fa-external-link-alt"></i> visit vuna</a>
+                    <span class="agritech-badge"><i class="fas fa-microchip"></i> agritech</span>
+                    <h3>VunaMarketplace</h3>
+                    <div class="sub-domain">vunamarketplace.com (VUN)</div>
+                    <p>Digital agritech platform connecting smallholder farmers to fair markets. AI‑powered advisory, input financing, and harvest aggregation.</p>
+                    <a href="#" class="sub-link">Explore Vuna <i class="fas fa-arrow-right"></i></a>
                 </div>
 
-                <!-- ASHOKO - friendly logistics -->
-                <div class="subsidiary-premium fade-up" style="animation-delay: 0.3s;">
-                    <div class="premium-icon">
+                <!-- MavunoTrade (seller & buyer of agri produce) -->
+                <div class="sub-card fade-up" style="animation-delay:0.2s">
+                    <div class="sub-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <span class="agritech-badge"><i class="fas fa-seedling"></i> commodity trade</span>
+                    <h3>MavunoTrade</h3>
+                    <div class="sub-domain">mavuntrade.com</div>
+                    <p>Leading buyer and seller of agricultural produce — grains, pulses, and cash crops. Direct sourcing, post‑harvest handling, and export partnerships.</p>
+                    <a href="#" class="sub-link">Trade with us <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Ashoko.com (logistics) -->
+                <div class="sub-card fade-up" style="animation-delay:0.3s">
+                    <div class="sub-icon">
                         <i class="fas fa-truck"></i>
                     </div>
-                    <h3>ashoko logistics</h3>
-                    <div class="sub-domain">
-                        <i class="fas fa-globe"></i> www.ashoko.com
-                    </div>
-                    <div class="premium-description">
-                        <p>🚚 <strong>we move what matters</strong> — Ashoko is your cheery neighbour with a fleet of trucks. from a box of tomatoes to a container of machines, we deliver safely and with a smile.</p>
-                    </div>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check-circle"></i> nationwide & cross‑border delivery</li>
-                        <li><i class="fas fa-check-circle"></i> cold trucks for Vuna's fresh produce</li>
-                        <li><i class="fas fa-check-circle"></i> track your package in real time 📍</li>
-                        <li><i class="fas fa-check-circle"></i> friendly drivers & easy booking</li>
-                    </ul>
-                    <a href="https://www.ashoko.com" target="_blank" class="btn-friendly"><i class="fas fa-external-link-alt"></i> visit ashoko</a>
+                    <span class="agritech-badge"><i class="fas fa-route"></i> logistics</span>
+                    <h3>Ashoko</h3>
+                    <div class="sub-domain">ashoko.com</div>
+                    <p>Technology‑driven logistics company moving agricultural goods from farm to factory & port. Cold chain, fleet management, and real‑time tracking.</p>
+                    <a href="#" class="sub-link">Ship with Ashoko <i class="fas fa-arrow-right"></i></a>
                 </div>
-            </div>
-
-            <!-- synergy with extra friendliness -->
-            <div class="synergy-box fade-up" style="animation-delay: 0.4s;">
-                <div class="floating-emoji emoji1">🚜</div>
-                <div class="floating-emoji emoji2">📦</div>
-                <h3><i class="fas fa-hand-holding-heart"></i> vuna + ashoko = best friends</h3>
-                <p>when a farmer sells on Vuna, Ashoko picks up the harvest and brings it to your kitchen. farm‑to‑fork, powered by kindness and smart tech. 💚</p>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER (friendly version) -->
+    <!-- SYNERGY SECTION (how they connect) -->
+    <section class="synergy">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="fade-up">One Group, Integrated Value Chain</h2>
+                <p class="fade-up" style="animation-delay:0.1s">VunaMarketplace (agritech) + MavunoTrade (trade) + Ashoko (logistics) = resilient agri‑commerce</p>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; text-align: center;">
+                <div style="flex:1; min-width:200px;" class="fade-up">
+                    <i class="fas fa-chart-line" style="font-size:3rem; color:var(--accent);"></i>
+                    <h4 style="margin:1rem 0 0.5rem">VunaMarketplace</h4>
+                    <p>Digital advisory & market linkage</p>
+                </div>
+                <div style="flex:1; min-width:200px;" class="fade-up" style="animation-delay:0.1s">
+                    <i class="fas fa-exchange-alt" style="font-size:3rem; color:var(--accent);"></i>
+                    <h4 style="margin:1rem 0 0.5rem">MavunoTrade</h4>
+                    <p>Bulk purchase & sale, export</p>
+                </div>
+                <div style="flex:1; min-width:200px;" class="fade-up" style="animation-delay:0.2s">
+                    <i class="fas fa-warehouse" style="font-size:3rem; color:var(--accent);"></i>
+                    <h4 style="margin:1rem 0 0.5rem">Ashoko Logistics</h4>
+                    <p>Last-mile & cold chain transport</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (identical) -->
     <footer id="contact">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about fade-up">
                     <div class="footer-logo">
-                        <h3>Mitekaro Group Co.</h3>
-                        <p>growing a better tomorrow 🌍</p>
+                        <h3>Mitekaro Group Company</h3>
+                        <p>Integrated Solutions Across Sectors</p>
                     </div>
-                    <p>we connect tech, agriculture, transport and health with a human touch.</p>
+                    <p>MGL is dedicated to creating a better future through innovation in technology, agriculture, transport, and health.</p>
                 </div>
                 <div class="footer-links fade-up" style="animation-delay: 0.1s">
-                    <h4>explore</h4>
+                    <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#home">🏡 home</a></li>
-                        <li><a href="#about">📘 about us</a></li>
-                        <li><a href="subsidiaries.html">🌟 subsidiaries</a></li>
-                        <li><a href="leadership.html">👥 leadership</a></li>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#sectors">Our Sectors</a></li>
+                        <li><a href="#subsidiaries">Subsidiaries</a></li>
+                        <li><a href="#values">Our Values</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact fade-up" style="animation-delay: 0.2s">
-                    <h4>say hello</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> 123 innovation drive, tech city</p>
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Innovation Drive, Tech City, TC 10001</p>
                     <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
-                    <p><i class="fas fa-envelope"></i> hello@mitekaro-group.com</p>
+                    <p><i class="fas fa-envelope"></i> info@mitekaro-group.com</p>
+                    <p><i class="fas fa-globe"></i> www.mitekaro-group.com</p>
                 </div>
             </div>
             <div class="copyright fade-up" style="animation-delay: 0.3s">
-                <p>© 2025 Mitekaro Group — made with ☕ and ❤️</p>
+                <p>&copy; 2025 Mitekaro Group Company (MGL). All rights reserved.</p>
             </div>
         </div>
     </footer>
 
+    <!-- JAVASCRIPT (same as original, with minor adjustments) -->
     <script>
-        // mobile menu
-        const mobileBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
-        const navOverlay = document.getElementById('navOverlay');
-
-        mobileBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            navOverlay.classList.toggle('active');
-            mobileBtn.innerHTML = navMenu.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-        });
-
-        navOverlay.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            navOverlay.classList.remove('active');
-            mobileBtn.innerHTML = '<i class="fas fa-bars"></i>';
-            document.querySelectorAll('.has-dropdown').forEach(d => d.classList.remove('active'));
-        });
-
-        // mobile dropdown
-        document.querySelectorAll('.has-dropdown > a').forEach(toggle => {
-            toggle.addEventListener('click', (e) => {
-                if (window.innerWidth <= 992) {
-                    e.preventDefault();
-                    toggle.parentElement.classList.toggle('active');
+        (function() {
+            const mobileBtn = document.getElementById('mobileMenuBtn');
+            const navMenu = document.getElementById('navMenu');
+            const navOverlay = document.getElementById('navOverlay');
+            
+            if (mobileBtn) {
+                mobileBtn.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    navOverlay.classList.toggle('active');
+                    mobileBtn.innerHTML = navMenu.classList.contains('active') 
+                        ? '<i class="fas fa-times"></i>' 
+                        : '<i class="fas fa-bars"></i>';
+                });
+            }
+            if (navOverlay) {
+                navOverlay.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    navOverlay.classList.remove('active');
+                    if(mobileBtn) mobileBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    document.querySelectorAll('.has-dropdown').forEach(d => d.classList.remove('active'));
+                });
+            }
+            
+            // dropdown mobile
+            const dropdownToggles = document.querySelectorAll('.has-dropdown > a');
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 992) {
+                        e.preventDefault();
+                        const dropdown = toggle.parentElement;
+                        dropdown.classList.toggle('active');
+                    }
+                });
+            });
+            
+            // header shrink
+            const header = document.getElementById('mainHeader');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) header.classList.add('scrolled');
+                else header.classList.remove('scrolled');
+            });
+            
+            // animation observer
+            const animated = document.querySelectorAll('.fade-up, .fade-left, .fade-right');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            }, { threshold:0.1, rootMargin:'0px 0px -30px 0px' });
+            animated.forEach(el => observer.observe(el));
+            
+            // set active nav (simulate subsidiaries page)
+            const navLinks = document.querySelectorAll('nav ul li a');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === 'subsidiaries.html' || link.innerHTML.includes('Subsidiaries')) {
+                    link.classList.add('active');
                 }
             });
-        });
-
-        // header shrink
-        const header = document.getElementById('mainHeader');
-        window.addEventListener('scroll', () => {
-            header.classList.toggle('scrolled', window.scrollY > 50);
-        });
-
-        // scroll animation
-        const animated = document.querySelectorAll('.fade-up');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
-        }, { threshold: 0.2 });
-        animated.forEach(el => observer.observe(el));
+        })();
     </script>
 </body>
 </html>
