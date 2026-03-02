@@ -378,27 +378,34 @@
         }
         /* ---------- END OF ORIGINAL HEADER ---------- */
 
-        /* ========== REDESIGNED MIDDLE SECTION (with background blending) ========== */
+        /* ========== REDESIGNED MIDDLE SECTION (with blue hero background) ========== */
         .mid-section-wrapper {
             background: linear-gradient(180deg, #ffffff 0%, #f0f9ff 50%, #e8f3f0 100%);
             padding-bottom: 2rem;
         }
 
-        /* asymmetric hero */
+        /* asymmetric hero with BLUE BACKGROUND */
         .hero-reimagined {
-            padding: 40px 0 60px;
+            padding: 60px 0 80px;
             position: relative;
+            background: linear-gradient(135deg, #1a4b8c 0%, #2a6fc9 50%, #3f8ae0 100%);
+            color: white;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(26, 75, 140, 0.3);
         }
+        
         .hero-split {
             display: flex;
             align-items: center;
             gap: 4rem;
         }
+        
         .hero-left {
             flex: 1.2;
         }
+        
         .hero-left .kicker {
-            color: var(--accent);
+            color: rgba(255, 255, 255, 0.8);
             text-transform: uppercase;
             letter-spacing: 3px;
             font-weight: 600;
@@ -406,49 +413,59 @@
             margin-bottom: 1rem;
             display: block;
         }
+        
         .hero-left h2 {
             font-size: 3.8rem;
             line-height: 1.1;
             font-weight: 800;
-            color: var(--primary);
+            color: white;
             margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
+        
         .hero-left h2 span {
-            color: var(--secondary);
+            color: #ffd966;
             display: block;
             font-weight: 700;
         }
+        
         .hero-left p {
             font-size: 1.2rem;
-            color: #4a5568;
+            color: rgba(255, 255, 255, 0.9);
             max-width: 500px;
-            border-left: 4px solid var(--accent);
+            border-left: 4px solid #ffd966;
             padding-left: 1.5rem;
         }
+        
         .hero-right {
             flex: 0.9;
-            background: linear-gradient(145deg, #f0f9ff, #e0ffee);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
             border-radius: 50% 50% 40% 60% / 60% 40% 60% 40%;
             padding: 2.5rem 2rem;
-            box-shadow: 20px 20px 40px rgba(10,61,98,0.1);
+            box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.2);
             text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
+        
         .hero-right .stats-mini {
             display: flex;
             flex-direction: column;
             gap: 1.2rem;
         }
+        
         .stat-mini-item {
-            background: white;
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 100px;
             padding: 1rem 2rem;
             font-weight: 600;
             color: var(--primary);
-            box-shadow: 0 5px 10px rgba(0,0,0,0.02);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
             display: flex;
             align-items: center;
             gap: 1rem;
         }
+        
         .stat-mini-item i {
             color: var(--accent);
             font-size: 1.4rem;
@@ -459,12 +476,12 @@
             position: absolute;
             width: 180px;
             height: 180px;
-            background: radial-gradient(circle at 30% 30%, var(--secondary) 3px, transparent 4px);
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3) 3px, transparent 4px);
             background-size: 20px 20px;
             opacity: 0.2;
             top: 20px;
             right: 5%;
-            z-index: -1;
+            z-index: 0;
         }
 
         /* subsidiaries grid – magazine style */
@@ -819,9 +836,9 @@
         </div>
     </header>
 
-    <!-- ========== REDESIGNED MIDDLE SECTION (with blended background) ========== -->
+    <!-- ========== REDESIGNED MIDDLE SECTION (with blue hero background) ========== -->
     <div class="mid-section-wrapper">
-        <!-- asymmetric hero (unchanged) -->
+        <!-- asymmetric hero with BLUE BACKGROUND -->
         <section class="hero-reimagined">
             <div class="container hero-split">
                 <div class="hero-left fade-up">
