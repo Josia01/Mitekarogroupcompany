@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subsidiaries · Mitekaro Group (MGL)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0a3d62;
+            --secondary: #1e90ff;
+            --accent: #00b894;
+            --light: #f7f9fc;
+            --dark: #2d3436;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            overflow-x: hidden;
+            padding-top: 80px;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* ---------- STATIONARY HEADER (identical to main) ---------- */
+        header {
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 30px rgba(10, 61, 98, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(10, 61, 98, 0.08);
+            animation: slideDown 0.5s ease;
+            transition: all 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(10, 61, 98, 0.2);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: 0.5s;
+        }
+
+        .logo:hover .logo-icon::before {
+            left: 100%;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0;
+            color: var(--primary);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span {
+            color: var(--accent);
+            font-weight: 500;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        /* Navigation identical to main page */
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 10px;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            background: transparent;
+            white-space: nowrap;
+        }
+
+        nav ul li a i {
+            margin-right: 8px;
+            font-size: 0.9rem;
+            width: 18px;
+        }
+
+        nav ul li a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30, 144, 255, 0.1) 0%, rgba(0, 184, 148, 0.1) 100%);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+            border-radius: 8px;
+        }
+
+        nav ul li a:hover::before {
+            opacity: 1;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        nav ul li a.active {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(10, 61, 98, 0.2);
+        }
+
+        .has-dropdown > a::after {
+            content: "\f078";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            margin-left: 6px;
+            font-size: 0.7rem;
+            transition: var(--transition);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 0;
+            background-color: white;
+            min-width: 220px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-radius: 12px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: var(--transition);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            border: 1px solid rgba(10, 61, 98, 0.1);
+        }
+
+        .has-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            padding: 12px 15px;
+            border-radius: 6px;
+        }
+
+        .nav-cta {
+            margin-left: 20px;
+        }
+
+        .nav-cta a {
+            background: linear-gradient(135deg, var(--accent) 0%, #00a085 100%);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0, 184, 148, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .nav-cta a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 184, 148, 0.4);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(10, 61, 98, 0.2);
+        }
+
+        header.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 5px 20px rgba(10, 61, 98, 0.15);
+        }
+
+        .nav-overlay {
+            display: none;
+        }
+
+        /* ---------- HERO (sub‑page) ---------- */
+        .page-hero {
+            background: linear-gradient(rgba(10, 61, 98, 0.85), rgba(10, 61, 98, 0.9)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 120px 0 80px;
+            margin-top: -80px;
+        }
+
+        .page-hero h2 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .breadcrumb {
+            margin-top: 1rem;
+            font-size: 1rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px dotted var(--accent);
+        }
+
+        /* ---------- SUBSIDIARIES DETAIL PAGE (TWO BUSINESSES) ---------- */
+        .subsidiaries-section {
+            padding: 5rem 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+        }
+
+        /* featured subsidiaries (grid of two large cards) */
+        .subsidiary-showcase {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2rem 0;
+        }
+
+        .subsidiary-premium {
+            background: var(--light);
+            border-radius: 30px;
+            padding: 3rem 2.5rem;
+            box-shadow: 0 30px 40px rgba(10, 61, 98, 0.12);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            flex: 0 1 500px;
+            max-width: 550px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .subsidiary-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30, 144, 255, 0.05) 0%, rgba(0, 184, 148, 0.05) 100%);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 0;
+        }
+
+        .subsidiary-premium::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--secondary), var(--accent), var(--secondary));
+            border-radius: 32px;
+            z-index: -1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .subsidiary-premium:hover::after {
+            opacity: 1;
+            animation: rotate 5s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .subsidiary-premium:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 40px 60px rgba(10, 61, 98, 0.2);
+            border-color: transparent;
+        }
+
+        .subsidiary-premium:hover::before {
+            opacity: 1;
+        }
+
+        .premium-icon {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 20px 30px rgba(30, 144, 255, 0.3);
+            transition: all 0.5s ease;
+        }
+
+        .subsidiary-premium:hover .premium-icon {
+            transform: scale(1.1) rotate(5deg);
+            background: linear-gradient(145deg, var(--secondary), var(--accent));
+        }
+
+        .premium-icon i {
+            font-size: 4.5rem;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .subsidiary-premium h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            position: relative;
+            z-index: 2;
+        }
+
+        .sub-domain {
+            display: inline-block;
+            background: rgba(0,184,148,0.15);
+            color: var(--primary);
+            font-weight: 600;
+            padding: 0.4rem 1.5rem;
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            border: 1px dashed var(--accent);
+            position: relative;
+            z-index: 2;
+        }
+
+        .sub-domain i {
+            margin-right: 8px;
+            color: var(--accent);
+        }
+
+        .premium-description {
+            position: relative;
+            z-index: 2;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #2d3436;
+        }
+
+        .premium-description p {
+            margin-bottom: 1rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            text-align: left;
+            margin: 1.5rem 0;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+        }
+
+        .feature-list li i {
+            color: var(--accent);
+            font-size: 1.3rem;
+            width: 28px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--primary);
+            padding: 0.8rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-outline:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(30,144,255,0.3);
+        }
+
+        .btn-outline i {
+            font-size: 0.9rem;
+        }
+
+        /* synergy note (optional) */
+        .synergy-box {
+            background: linear-gradient(135deg, #0a3d62 0%, #1a4a7a 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 40px;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .synergy-box h3 {
+            color: white;
+            font-size: 2rem;
+        }
+
+        .synergy-box p {
+            max-width: 700px;
+            margin: 1rem auto 0;
+            opacity: 0.9;
+        }
+
+        /* footer (exact copy) */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo h3 {
+            color: white;
+        }
+
+        .footer-links h4, .footer-contact h4 {
+            color: white;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-links h4::after, .footer-contact h4::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .footer-contact p {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* responsive */
+        @media (max-width: 992px) {
+            .mobile-menu-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            nav ul {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 300px;
+                height: 100vh;
+                background-color: white;
+                flex-direction: column;
+                padding: 100px 30px 30px;
+                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+                transition: 0.3s;
+                z-index: 999;
+                gap: 0;
+            }
+            nav ul.active {
+                right: 0;
+            }
+            nav ul li a {
+                padding: 1rem;
+                justify-content: flex-start;
+            }
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background-color: rgba(10, 61, 98, 0.05);
+                min-width: 100%;
+                max-height: 0;
+                overflow: hidden;
+                padding: 0;
+                transition: max-height 0.3s ease;
+                border: none;
+            }
+            .dropdown-menu.active {
+                max-height: 500px;
+                padding: 10px;
+            }
+            .has-dropdown.active .dropdown-menu {
+                max-height: 500px;
+                padding: 10px;
+            }
+            .has-dropdown.active > a::after {
+                transform: rotate(180deg);
+            }
+            .nav-cta {
+                margin-left: 0;
+                margin-top: 20px;
+            }
+            .nav-overlay {
+                display: block;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 998;
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+            }
+            .nav-overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+            .subsidiary-premium {
+                padding: 2rem 1.5rem;
+            }
+            .subsidiary-premium h3 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- STATIONARY HEADER (exact replica) -->
+    <header id="mainHeader">
+        <div class="container">
+            <div class="header-content">
+                <a href="#home" class="logo">
+                    <div class="logo-container">
+                        <div class="logo-icon">MGL</div>
+                        <div class="logo-text">
+                            <h1>Mitekaro Group</h1>
+                            <span>Multisector Solutions Provider</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <div class="nav-overlay" id="navOverlay"></div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav>
+                    <ul id="navMenu">
+                        <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                        <li class="has-dropdown">
+                            <a href="#about"><i class="fas fa-building"></i> About</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#about"><i class="fas fa-info-circle"></i> Company Overview</a></li>
+                                <li><a href="#values"><i class="fas fa-star"></i> Our Values</a></li>
+                                <li><a href="#global"><i class="fas fa-globe"></i> Global Presence</a></li>
+                                <li><a href="leadership.html"><i class="fas fa-users"></i> Leadership Team</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-dropdown">
+                            <a href="#sectors"><i class="fas fa-industry"></i> Sectors</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><i class="fas fa-microchip"></i> Technology</a></li>
+                                <li><a href="#"><i class="fas fa-seedling"></i> Agriculture</a></li>
+                                <li><a href="#"><i class="fas fa-shipping-fast"></i> Transport</a></li>
+                                <li><a href="#"><i class="fas fa-heartbeat"></i> Health</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="subsidiaries.html" class="active"><i class="fas fa-network-wired"></i> Subsidiaries</a></li>
+                        <li><a href="leadership.html"><i class="fas fa-users"></i> Leadership</a></li>
+                        <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                        <li class="nav-cta">
+                            <a href="#contact"><i class="fas fa-paper-plane"></i> Get In Touch</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="page-hero" id="home">
+        <div class="container">
+            <h2 class="fade-up">Our Subsidiaries</h2>
+            <p class="fade-up" style="animation-delay: 0.1s;">Specialized businesses driving innovation in tech‑agriculture and logistics</p>
+            <div class="breadcrumb fade-up" style="animation-delay: 0.2s;">
+                <a href="index.html">Home</a> / <span>Subsidiaries</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subsidiaries detail: VUNA & ASHOKO -->
+    <section class="subsidiaries-section" id="subsidiaries">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="fade-up">Flagship businesses</h2>
+                <p class="fade-up" style="animation-delay: 0.1s;">Leveraging technology to connect farmers to markets & move goods efficiently</p>
+            </div>
+
+            <div class="subsidiary-showcase">
+                <!-- VUNA MARKETPLACE (tech + agriculture) -->
+                <div class="subsidiary-premium fade-up" style="animation-delay: 0.2s;">
+                    <div class="premium-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Vuna Marketplace</h3>
+                    <div class="sub-domain">
+                        <i class="fas fa-globe"></i> www.vunamarketplace.org
+                    </div>
+                    <div class="premium-description">
+                        <p><strong>Where farmers & consumers meet directly</strong> — Vuna is an agri-tech platform that eliminates middlemen. Farmers list fresh produce, consumers and local businesses buy at fair prices.</p>
+                    </div>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> Real‑time market prices & weather insights</li>
+                        <li><i class="fas fa-check-circle"></i> Mobile‑first platform for rural farmers</li>
+                        <li><i class="fas fa-check-circle"></i> Secure payments and quality assurance</li>
+                        <li><i class="fas fa-check-circle"></i> Reduce post‑harvest loss by connecting directly to buyers</li>
+                    </ul>
+                    <a href="https://www.vunamarketplace.org" target="_blank" class="btn-outline"><i class="fas fa-external-link-alt"></i> Visit Vuna Marketplace</a>
+                </div>
+
+                <!-- ASHOKO LOGISTICS (transport) -->
+                <div class="subsidiary-premium fade-up" style="animation-delay: 0.3s;">
+                    <div class="premium-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Ashoko Logistics</h3>
+                    <div class="sub-domain">
+                        <i class="fas fa-globe"></i> www.ashoko.com
+                    </div>
+                    <div class="premium-description">
+                        <p><strong>Reliable transport & shipping across the region</strong> — Ashoko moves goods efficiently, from fresh farm produce to industrial equipment. Real‑time tracking and a modern fleet.</p>
+                    </div>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> Nationwide coverage & cross‑border shipping</li>
+                        <li><i class="fas fa-check-circle"></i> Cold chain for perishables (integrated with Vuna)</li>
+                        <li><i class="fas fa-check-circle"></i> AI‑optimised routes to reduce fuel & time</li>
+                        <li><i class="fas fa-check-circle"></i> Warehousing & last‑mile delivery</li>
+                    </ul>
+                    <a href="https://www.ashoko.com" target="_blank" class="btn-outline"><i class="fas fa-external-link-alt"></i> Visit Ashoko Logistics</a>
+                </div>
+            </div>
+
+            <!-- synergy note: how they work together -->
+            <div class="synergy-box fade-up" style="animation-delay: 0.4s;">
+                <h3><i class="fas fa-sync-alt"></i> Vuna + Ashoko : full‑circle solution</h3>
+                <p>Farmers using Vuna Marketplace can instantly book Ashoko logistics to deliver their produce to urban buyers. This integration creates a seamless farm‑to‑fork chain — technology and transport united.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about fade-up">
+                    <div class="footer-logo">
+                        <h3>Mitekaro Group Company</h3>
+                        <p>Integrated Solutions Across Sectors</p>
+                    </div>
+                    <p>MGL is dedicated to creating a better future through innovation in technology, agriculture, transport, and health.</p>
+                </div>
+                <div class="footer-links fade-up" style="animation-delay: 0.1s">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#sectors">Our Sectors</a></li>
+                        <li><a href="subsidiaries.html">Subsidiaries</a></li>
+                        <li><a href="leadership.html">Leadership</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact fade-up" style="animation-delay: 0.2s">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Innovation Drive, Tech City, TC 10001</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> info@mitekaro-group.com</p>
+                    <p><i class="fas fa-globe"></i> www.mitekaro-group.com</p>
+                </div>
+            </div>
+            <div class="copyright fade-up" style="animation-delay: 0.3s">
+                <p>&copy; 2025 Mitekaro Group Company (MGL). All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu + header shrink (identical to main)
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        const navOverlay = document.getElementById('navOverlay');
+
+        mobileBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navOverlay.classList.toggle('active');
+            mobileBtn.innerHTML = navMenu.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        navOverlay.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            navOverlay.classList.remove('active');
+            mobileBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            document.querySelectorAll('.has-dropdown').forEach(d => d.classList.remove('active'));
+        });
+
+        // mobile dropdown
+        document.querySelectorAll('.has-dropdown > a').forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                if (window.innerWidth <= 992) {
+                    e.preventDefault();
+                    toggle.parentElement.classList.toggle('active');
+                }
+            });
+        });
+
+        // header shrink
+        const header = document.getElementById('mainHeader');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // scroll animation
+        const animated = document.querySelectorAll('.fade-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.2 });
+        animated.forEach(el => observer.observe(el));
+
+        // smooth hash scroll
+        document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
