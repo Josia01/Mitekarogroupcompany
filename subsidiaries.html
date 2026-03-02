@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MGL · subsidiaries | reimagined</title>
+    <title>MGL · subsidiaries | refined</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
@@ -378,10 +378,14 @@
         }
         /* ---------- END OF ORIGINAL HEADER ---------- */
 
-        /* ========== COMPLETELY REDESIGNED MIDDLE SECTION (SAME COLORS) ========== */
-        /* hero – now split, asymmetric */
+        /* ========== REDESIGNED MIDDLE SECTION (with background blending) ========== */
+        .mid-section-wrapper {
+            background: linear-gradient(180deg, #ffffff 0%, #f0f9ff 50%, #e8f3f0 100%);
+            padding-bottom: 2rem;
+        }
+
+        /* asymmetric hero */
         .hero-reimagined {
-            background-color: #ffffff;
             padding: 40px 0 60px;
             position: relative;
         }
@@ -451,7 +455,6 @@
             width: 32px;
         }
 
-        /* floating shapes (same colors) */
         .shape-dots {
             position: absolute;
             width: 180px;
@@ -467,7 +470,6 @@
         /* subsidiaries grid – magazine style */
         .subsidiaries-magazine {
             padding: 70px 0;
-            background-color: #ffffff;
         }
         .section-caption {
             text-align: center;
@@ -592,10 +594,45 @@
             color: var(--secondary);
         }
 
-        /* value proposition – deconstructed */
-        .value-strip {
-            background: linear-gradient(120deg, #f7f9fc, #ffffff);
+        /* NEW: resilience band moved ABOVE value blocks */
+        .resilience-band {
+            background: linear-gradient(105deg, #0a3d62 0%, #1e90ff 100%);
             padding: 4rem 0;
+            margin: 2rem 0 0 0;
+            clip-path: polygon(0 8%, 100% 0, 100% 92%, 0 100%);
+        }
+        .resilience-band .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        .resilience-band h3 {
+            color: white;
+            font-size: 2.8rem;
+            margin-bottom: 0;
+            font-weight: 600;
+        }
+        .resilience-band .btn-ghost {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: white;
+            padding: 1rem 3rem;
+            border-radius: 60px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+        .resilience-band .btn-ghost:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        /* value strip – now placed after resilience */
+        .value-strip {
+            padding: 5rem 0 5rem;
         }
         .value-grid {
             display: grid;
@@ -622,42 +659,7 @@
             color: #2d3436;
         }
 
-        /* full-width CTA */
-        .cta-band {
-            background-color: var(--primary);
-            color: white;
-            padding: 5rem 0;
-            clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
-            margin: 2rem 0;
-        }
-        .cta-band .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-        .cta-band h3 {
-            color: white;
-            font-size: 2.5rem;
-            margin-bottom: 0;
-        }
-        .cta-band .btn-ghost {
-            background: transparent;
-            border: 2px solid var(--accent);
-            color: white;
-            padding: 1rem 3rem;
-            border-radius: 60px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        .cta-band .btn-ghost:hover {
-            background: var(--accent);
-            color: var(--primary);
-        }
-
-        /* footer – exactly original (unchanged) */
+        /* footer – exactly original */
         footer {
             background-color: var(--primary);
             color: white;
@@ -817,9 +819,9 @@
         </div>
     </header>
 
-    <!-- ========== NEW MIDDLE SECTION (completely different design) ========== -->
-    <main>
-        <!-- asymmetric hero -->
+    <!-- ========== REDESIGNED MIDDLE SECTION (with blended background) ========== -->
+    <div class="mid-section-wrapper">
+        <!-- asymmetric hero (unchanged) -->
         <section class="hero-reimagined">
             <div class="container hero-split">
                 <div class="hero-left fade-up">
@@ -868,14 +870,14 @@
                     </a>
 
                     <!-- MavunoTrade -->
-                    <a href="https://mavuntrade.org" target="_blank" rel="noopener" class="magazine-card fade-up" style="animation-delay:0.2s">
+                    <a href="https://mavuntrade.com" target="_blank" rel="noopener" class="magazine-card fade-up" style="animation-delay:0.2s">
                         <div class="card-media">
                             <span class="card-category">trade</span>
                             <i class="fas fa-handshake"></i>
                         </div>
                         <div class="card-content">
                             <h4>MavunoTrade</h4>
-                            <div class="card-domain"><i class="fas fa-globe"></i> www.mavuntrade.org</div>
+                            <div class="card-domain"><i class="fas fa-globe"></i> mavuntrade.com</div>
                             <p>Primary buyer & seller of grains, pulses, and cash crops — domestic & export.</p>
                             <div class="feature-tags">
                                 <span>direct sourcing</span>
@@ -908,7 +910,15 @@
             </div>
         </section>
 
-        <!-- value strip (deconstructed) -->
+        <!-- RESILIENCE BAND (moved above value blocks) -->
+        <div class="resilience-band">
+            <div class="container">
+                <h3 class="fade-up">integrated · resilient · transparent</h3>
+                <a href="#" class="btn-ghost fade-up">explore synergy →</a>
+            </div>
+        </div>
+
+        <!-- value strip (now directly after resilience) -->
         <section class="value-strip">
             <div class="container">
                 <div class="value-grid">
@@ -930,16 +940,8 @@
                 </div>
             </div>
         </section>
-
-        <!-- CTA band (same colors, fresh layout) -->
-        <div class="cta-band">
-            <div class="container">
-                <h3 class="fade-up">integrated · resilient · transparent</h3>
-                <a href="#" class="btn-ghost fade-up">explore synergy →</a>
-            </div>
-        </div>
-    </main>
-    <!-- ========== END OF NEW MIDDLE SECTION ========== -->
+    </div>
+    <!-- ========== END OF MIDDLE SECTION ========== -->
 
     <!-- ORIGINAL FOOTER (exactly as provided) -->
     <footer id="contact">
