@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vuna · agri‑ecommerce | MGL tech</title>
+    <title>Vuna · living exchange | MGL</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
@@ -378,260 +378,311 @@
         }
         /* ---------- END OF ORIGINAL HEADER ---------- */
 
-        /* ========== REDESIGNED MIDDLE SECTION ========== */
+        /* ========== CREATIVE, FRESH MIDDLE SECTION (different layout) ========== */
         .mid-section-wrapper {
-            background: linear-gradient(180deg, #ffffff 0%, #f0f9ff 50%, #e8f3f0 100%);
-            padding-bottom: 2rem;
+            background: linear-gradient(180deg, #ffffff 0%, #f0f7fa 40%, #e9f3ee 100%);
+            padding-bottom: 3rem;
         }
 
-        /* asymmetric hero with DEEP BLUE (highlight Vuna) */
-        .hero-reimagined {
-            padding: 60px 0 80px;
+        /* hero – organic asymmetric with abstract shape & glow */
+        .hero-vuna {
+            padding: 50px 0 90px;
             position: relative;
-            background: linear-gradient(135deg, #0a3d62 0%, #1e4f8a 50%, #1e90ff 100%);
+            background: radial-gradient(circle at 10% 30%, #0a3d62, #06304e);
             color: white;
-            margin-bottom: 20px;
-            box-shadow: 0 10px 30px rgba(10,61,98,0.3);
+            isolation: isolate;
+            overflow: hidden;
         }
-        
-        .hero-split {
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-        }
-        
-        .hero-left {
-            flex: 1.2;
-        }
-        
-        .hero-left .kicker {
-            color: rgba(255, 255, 255, 0.8);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-        
-        .hero-left h2 {
-            font-size: 3.8rem;
-            line-height: 1.1;
-            font-weight: 800;
-            color: white;
-            margin-bottom: 1.5rem;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-        
-        .hero-left h2 span {
-            color: #ffd966;
-            display: block;
-            font-weight: 700;
-        }
-        
-        .hero-left p {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.9);
-            max-width: 500px;
-            border-left: 4px solid #ffd966;
-            padding-left: 1.5rem;
-        }
-        
-        .hero-right {
-            flex: 0.9;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border-radius: 50% 50% 40% 60% / 60% 40% 60% 40%;
-            padding: 2.5rem 2rem;
-            box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .hero-right .stats-mini {
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-        }
-        
-        .stat-mini-item {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 100px;
-            padding: 1rem 2rem;
-            font-weight: 600;
-            color: var(--primary);
-            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .stat-mini-item i {
-            color: var(--accent);
-            font-size: 1.4rem;
-            width: 32px;
-        }
-
-        .shape-dots {
+        .hero-vuna::after {
+            content: '';
             position: absolute;
-            width: 180px;
-            height: 180px;
-            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3) 3px, transparent 4px);
-            background-size: 20px 20px;
-            opacity: 0.2;
-            top: 20px;
-            right: 5%;
+            inset: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><path fill="white" d="M20 30 Q 40 10 60 30 T 90 30 L 80 70 Q 60 90 40 70 T 10 70 Z" /></svg>');
+            background-size: 600px 600px;
+            background-repeat: no-repeat;
+            background-position: 120% 30%;
             z-index: 0;
         }
 
-        /* subsidiaries grid – magazine style (Vuna first) */
-        .subsidiaries-magazine {
-            padding: 70px 0;
-        }
-        .section-caption {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        .section-caption h3 {
-            font-size: 2.8rem;
-            font-weight: 300;
-            color: var(--primary);
-        }
-        .section-caption h3 strong {
-            font-weight: 700;
-            color: var(--secondary);
-        }
-        .section-caption .bar {
-            width: 80px;
-            height: 4px;
-            background: var(--accent);
-            margin: 1.2rem auto 1rem;
-            border-radius: 4px;
-        }
-
-        .card-grid-new {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .magazine-card {
-            background: white;
-            border-radius: 0px;
-            box-shadow: 0 30px 50px -20px rgba(10,61,98,0.15);
-            transition: all 0.4s ease;
-            border: 1px solid rgba(30,144,255,0.1);
-            position: relative;
-            overflow: hidden;
+        .hero-split-custom {
             display: flex;
-            flex-direction: column;
-            text-decoration: none;
-            color: inherit;
-        }
-        .magazine-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 40px 70px -15px rgba(10,61,98,0.3);
-            border-color: transparent;
-        }
-
-        .card-media {
-            height: 160px;
-            background: linear-gradient(135deg, #0a3d62, #1e90ff);
-            display: flex;
-            align-items: flex-end;
-            justify-content: flex-start;
-            padding: 1.5rem;
+            align-items: center;
+            gap: 3rem;
             position: relative;
-        }
-        .card-media i {
-            font-size: 5rem;
-            color: rgba(255,255,255,0.2);
-            position: absolute;
-            bottom: 0.2rem;
-            right: 1rem;
-        }
-        .card-category {
-            background: var(--accent);
-            color: white;
-            font-weight: 600;
-            padding: 0.4rem 1.2rem;
-            border-radius: 40px;
-            font-size: 0.75rem;
-            letter-spacing: 1px;
             z-index: 2;
         }
-
-        .card-content {
-            padding: 2rem 1.8rem 2rem;
+        .hero-tagline {
+            flex: 1;
         }
-        .card-content h4 {
-            font-size: 2.2rem;
-            margin-bottom: 0.2rem;
-            color: var(--primary);
-            line-height: 1.2;
-        }
-        .card-domain {
-            font-size: 1.1rem;
-            color: var(--secondary);
-            font-weight: 500;
-            margin-bottom: 1rem;
-            border-bottom: 1px dashed rgba(0,0,0,0.05);
-            padding-bottom: 0.8rem;
-        }
-        .card-domain i {
-            margin-right: 6px;
-            color: var(--accent);
-        }
-        .feature-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 1.5rem 0;
-        }
-        .feature-tags span {
-            background: rgba(30,144,255,0.08);
-            color: var(--primary);
-            padding: 0.3rem 1rem;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            border: 1px solid rgba(0,184,148,0.1);
-        }
-        .card-link {
+        .hero-tagline .pre-title {
             display: flex;
             align-items: center;
             gap: 10px;
-            font-weight: 600;
             color: var(--accent);
-            margin-top: 1rem;
-            transition: var(--transition);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
         }
-        .magazine-card:hover .card-link {
-            gap: 15px;
+        .hero-tagline .pre-title i {
+            font-size: 1.8rem;
             color: var(--secondary);
         }
-
-        /* resilience band */
-        .resilience-band {
-            background: linear-gradient(105deg, #0a3d62 0%, #1e90ff 100%);
-            padding: 4rem 0;
-            margin: 2rem 0 0 0;
-            clip-path: polygon(0 8%, 100% 0, 100% 92%, 0 100%);
+        .hero-tagline h2 {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            color: white;
+            margin-bottom: 1.5rem;
         }
-        .resilience-band .container {
+        .hero-tagline h2 span {
+            color: #f9ca7f;
+            font-style: italic;
+            display: inline-block;
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 0.2rem;
+        }
+        .hero-desc {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.8);
+            max-width: 500px;
+            margin-bottom: 2rem;
+        }
+        .hero-stats-pill {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .stat-pill {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+            padding: 0.8rem 1.5rem;
+            border-radius: 60px;
+            border: 1px solid rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+        }
+        .stat-pill i {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        .hero-visual {
+            flex: 0.9;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border-radius: 30% 70% 40% 60% / 50% 40% 60% 50%;
+            padding: 2.5rem 2rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
+            transform: rotate(1deg);
+        }
+        .float-feature {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .float-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(0,0,0,0.2);
+            border-radius: 100px;
+            padding: 0.8rem 1.8rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: var(--transition);
+        }
+        .float-feature-item:hover {
+            background: var(--accent);
+            transform: scale(1.02) translateX(8px);
+        }
+        .float-feature-item i {
+            font-size: 1.8rem;
+            color: white;
+        }
+        .float-feature-item span {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* hexagonal module display – completely different from previous grid */
+        .vuna-hub {
+            padding: 90px 0 70px;
+        }
+        .section-marker {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 2rem;
+        }
+        .section-marker span {
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 20px;
+            opacity: 0.5;
+        }
+        .section-marker span.active {
+            opacity: 1;
+            width: 40px;
+            background: var(--secondary);
+        }
+        .hub-headline {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+        .hub-headline h3 {
+            font-size: 3rem;
+            color: var(--primary);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        .hub-headline h3 i {
+            color: var(--accent);
+            font-style: normal;
+            border-bottom: 4px dotted var(--secondary);
+        }
+
+        .hex-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem 3rem;
+            position: relative;
+        }
+        .hex-item {
+            width: 260px;
+            background: white;
+            padding: 2rem 1.5rem;
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+            box-shadow: 0 20px 35px -8px rgba(10,61,98,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            border: 2px solid transparent;
+            background: linear-gradient(white, white) padding-box, linear-gradient(135deg, var(--secondary), var(--accent)) border-box;
+        }
+        .hex-item:hover {
+            transform: translateY(-15px) rotate(1deg);
+            box-shadow: 0 30px 45px -10px rgba(10,61,98,0.4);
+        }
+        .hex-icon {
+            font-size: 3.5rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+        .hex-item h4 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        .hex-item p {
+            font-size: 0.95rem;
+            padding: 0 0.5rem;
+        }
+
+        /* fresh band with live feed simulation */
+        .live-band {
+            background: #0e2c47;
+            padding: 3rem 0;
+            margin: 1rem 0;
+            position: relative;
+            border-block: 3px solid var(--accent);
+        }
+        .live-ticker {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        .ticker-label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .pulse {
+            width: 16px;
+            height: 16px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(0,184,148,0.5);
+            animation: pulse-green 1.8s infinite;
+        }
+        @keyframes pulse-green { 70% { box-shadow: 0 0 0 15px rgba(0,184,148,0); } }
+        .ticker-label span {
+            color: white;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        .ticker-messages {
+            display: flex;
+            gap: 3rem;
+            color: rgba(255,255,255,0.7);
+            font-size: 1.2rem;
+        }
+        .ticker-messages i {
+            color: var(--accent);
+            margin-right: 8px;
+        }
+
+        /* ecosystem pillars (replaces old value strip) */
+        .pillars {
+            padding: 5rem 0;
+        }
+        .pillar-row {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 2rem;
+        }
+        .pillar {
+            background: var(--light);
+            padding: 2.5rem 1.8rem;
+            border-radius: 40px 20px 40px 20px;
+            transition: var(--transition);
+            border: 1px solid rgba(30,144,255,0.1);
+        }
+        .pillar:hover {
+            background: white;
+            box-shadow: 0 20px 40px -15px rgba(0,184,148,0.3);
+            border-color: var(--accent);
+        }
+        .pillar .emoji-big {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+        }
+        .pillar h5 {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        .pillar p {
+            color: #3d4a5a;
+        }
+
+        /* resilience band tweaked (still present but fresh) */
+        .resilience-fresh {
+            background: linear-gradient(120deg, #0a3d62, #10467c);
+            padding: 4rem 0;
+            border-radius: 80px 20px 80px 20px;
+            margin: 1rem auto 3rem;
+            width: 95%;
+        }
+        .resilience-fresh .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             gap: 2rem;
         }
-        .resilience-band h3 {
+        .resilience-fresh h3 {
             color: white;
             font-size: 2.8rem;
-            margin-bottom: 0;
             font-weight: 600;
+            margin-bottom: 0;
         }
-        .resilience-band .btn-ghost {
+        .resilience-fresh .btn-border {
             background: transparent;
             border: 2px solid var(--accent);
             color: white;
@@ -641,42 +692,16 @@
             text-decoration: none;
             transition: var(--transition);
             font-size: 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
         }
-        .resilience-band .btn-ghost:hover {
+        .resilience-fresh .btn-border:hover {
             background: var(--accent);
             color: var(--primary);
         }
 
-        /* value strip */
-        .value-strip {
-            padding: 5rem 0 5rem;
-        }
-        .value-grid {
-            display: grid;
-            grid-template-columns: repeat(3,1fr);
-            gap: 3rem;
-        }
-        .value-block {
-            text-align: left;
-            border-top: 3px solid var(--accent);
-            padding-top: 1.5rem;
-        }
-        .value-block .value-number {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--secondary);
-            opacity: 0.4;
-            line-height: 1;
-        }
-        .value-block h5 {
-            font-size: 1.6rem;
-            margin: 0.5rem 0 1rem;
-        }
-        .value-block p {
-            color: #2d3436;
-        }
-
-        /* footer – exactly original */
+        /* footer same, but we keep it untouched */
         footer {
             background-color: var(--primary);
             color: white;
@@ -735,7 +760,6 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* animations */
         .fade-up {
             opacity: 0;
             transform: translateY(30px);
@@ -747,13 +771,12 @@
         }
 
         /* responsive */
-        @media (max-width: 1100px) {
-            .hero-split { flex-direction: column; }
-            .card-grid-new { grid-template-columns: repeat(2,1fr); }
-            .value-grid { grid-template-columns: 1fr; }
+        @media (max-width: 1000px) {
+            .hero-split-custom { flex-direction: column; }
+            .pillar-row { grid-template-columns: 1fr; }
+            .hex-item { width: 220px; }
         }
         @media (max-width: 768px) {
-            .card-grid-new { grid-template-columns: 1fr; }
             .mobile-menu-btn { display: flex; }
             nav ul {
                 position: fixed;
@@ -780,6 +803,7 @@
                 transition: var(--transition);
             }
             .nav-overlay.active { opacity: 1; visibility: visible; }
+            .ticker-messages { flex-direction: column; gap: 0.8rem; }
         }
     </style>
 </head>
@@ -836,127 +860,115 @@
         </div>
     </header>
 
-    <!-- ========== REDESIGNED MIDDLE SECTION ========== -->
+    <!-- ========== CREATIVE, FRESH MIDDLE SECTION (different layout) ========== -->
     <div class="mid-section-wrapper">
-        <!-- asymmetric hero with DEEP BLUE (emphasis on Vuna e‑commerce) -->
-        <section class="hero-reimagined">
-            <div class="container hero-split">
-                <div class="hero-left fade-up">
-                    <span class="kicker">vuna · trade · move</span>
-                    <h2>farmers<br>connect.<span>buyers win.</span></h2>
-                    <p>VunaMarketplace — the e‑commerce backbone for fresh produce, linking cooperatives to global buyers.</p>
+
+        <!-- organic hero with abstract shape & glow -->
+        <section class="hero-vuna">
+            <div class="container hero-split-custom">
+                <div class="hero-tagline fade-up">
+                    <div class="pre-title"><i class="fa-solid fa-sprout"></i> v 2.0 · living exchange</div>
+                    <h2>where <span>fresh produce</span> meets digital trust</h2>
+                    <p class="hero-desc">VunaMarketplace isn't just an e‑commerce site — it's a living ecosystem where farmers set terms, buyers bid, and every transaction is protected.</p>
+                    <div class="hero-stats-pill">
+                        <div class="stat-pill"><i class="fa-solid fa-basket-shopping"></i> 2.4k buyers</div>
+                        <div class="stat-pill"><i class="fa-solid fa-tractor"></i> 15k farmers</div>
+                        <div class="stat-pill"><i class="fa-solid fa-leaf"></i> 47 countries</div>
+                    </div>
                 </div>
-                <div class="hero-right fade-up" style="animation-delay:0.1s">
-                    <div class="stats-mini">
-                        <div class="stat-mini-item"><i class="fas fa-seedling"></i> 45k+ farmers</div>
-                        <div class="stat-mini-item"><i class="fas fa-shopping-cart"></i> 2,800+ buyers</div>
-                        <div class="stat-mini-item"><i class="fas fa-boxes"></i> 1.2M kg traded</div>
+                <div class="hero-visual fade-up" style="animation-delay:0.1s">
+                    <div class="float-feature">
+                        <div class="float-feature-item"><i class="fa-solid fa-camera"></i> <span>crop scan & grade</span></div>
+                        <div class="float-feature-item"><i class="fa-solid fa-hand-holding-dollar"></i> <span>instant escrow</span></div>
+                        <div class="float-feature-item"><i class="fa-solid fa-chart-line"></i> <span>price trends</span></div>
+                        <div class="float-feature-item"><i class="fa-solid fa-truck-fast"></i> <span>Ashoko integrated</span></div>
                     </div>
                 </div>
             </div>
-            <div class="shape-dots"></div>
         </section>
 
-        <!-- magazine style subsidiaries (Vuna prominently featured) -->
-        <section class="subsidiaries-magazine">
+        <!-- hexagonal hub – completely different from previous grid -->
+        <section class="vuna-hub">
             <div class="container">
-                <div class="section-caption fade-up">
-                    <h3><strong>Vuna</strong> · e‑commerce ecosystem</h3>
-                    <div class="bar"></div>
-                    <p style="color:var(--primary);">one platform, endless market access — built for farmers & buyers</p>
+                <div class="section-marker fade-up">
+                    <span></span><span class="active"></span><span></span><span></span>
+                </div>
+                <div class="hub-headline fade-up">
+                    <h3>the <i>vuna</i> core · hexagonal modules</h3>
+                    <p style="color: var(--primary);">each facet powers the e‑commerce engine</p>
                 </div>
 
-                <div class="card-grid-new">
-                    <!-- VunaMarketplace – main e‑commerce card -->
-                    <a href="https://www.vunamarketplace.com" target="_blank" rel="noopener" class="magazine-card fade-up" style="animation-delay:0.1s">
-                        <div class="card-media">
-                            <span class="card-category">e‑commerce</span>
-                            <i class="fas fa-store"></i>
-                        </div>
-                        <div class="card-content">
-                            <h4>Vuna</h4>
-                            <div class="card-domain"><i class="fas fa-globe"></i> vunamarketplace.com</div>
-                            <p>Digital marketplace where farmers list produce & buyers purchase directly — integrated payments, quality checks & logistics.</p>
-                            <div class="feature-tags">
-                                <span>live auctions</span>
-                                <span>escrow</span>
-                                <span>quality assured</span>
-                            </div>
-                            <div class="card-link">visit e‑commerce platform <i class="fas fa-arrow-right"></i></div>
-                        </div>
-                    </a>
-
-                    <!-- MavunoTrade (supporting wholesale) -->
-                    <a href="https://www.mavunotrade.org" target="_blank" rel="noopener" class="magazine-card fade-up" style="animation-delay:0.2s">
-                        <div class="card-media">
-                            <span class="card-category">wholesale</span>
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                        <div class="card-content">
-                            <h4>MavunoTrade</h4>
-                            <div class="card-domain"><i class="fas fa-globe"></i> mavunotrade.org</div>
-                            <p>Bulk buyer & exporter — partners with Vuna to guarantee offtake for staple crops and high‑value produce.</p>
-                            <div class="feature-tags">
-                                <span>direct offtake</span>
-                                <span>warehouse receipts</span>
-                                <span>export docs</span>
-                            </div>
-                            <div class="card-link">visit website <i class="fas fa-arrow-right"></i></div>
-                        </div>
-                    </a>
-
-                    <!-- Ashoko (logistics enabler) -->
-                    <a href="https://ashoko.com" target="_blank" rel="noopener" class="magazine-card fade-up" style="animation-delay:0.3s">
-                        <div class="card-media">
-                            <span class="card-category">logistics</span>
-                            <i class="fas fa-truck"></i>
-                        </div>
-                        <div class="card-content">
-                            <h4>Ashoko</h4>
-                            <div class="card-domain"><i class="fas fa-globe"></i> ashoko.com</div>
-                            <p>Integrated cold chain — every Vuna order can be handed over to Ashoko for traceable, spoilage‑free delivery.</p>
-                            <div class="feature-tags">
-                                <span>cold chain</span>
-                                <span>real‑time tracking</span>
-                                <span>farm‑gate pickup</span>
-                            </div>
-                            <div class="card-link">visit website <i class="fas fa-arrow-right"></i></div>
-                        </div>
-                    </a>
+                <div class="hex-grid">
+                    <div class="hex-item fade-up">
+                        <div class="hex-icon"><i class="fa-solid fa-shop"></i></div>
+                        <h4>store</h4>
+                        <p>digital storefront for every farmer, with catalog & reviews</p>
+                    </div>
+                    <div class="hex-item fade-up" style="animation-delay:0.1s">
+                        <div class="hex-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                        <h4>bid</h4>
+                        <p>live auction & reverse bidding – best price discovery</p>
+                    </div>
+                    <div class="hex-item fade-up" style="animation-delay:0.2s">
+                        <div class="hex-icon"><i class="fa-solid fa-qrcode"></i></div>
+                        <h4>track</h4>
+                        <p>batch‑level QR from farm to fork, full transparency</p>
+                    </div>
+                    <div class="hex-item fade-up" style="animation-delay:0.25s">
+                        <div class="hex-icon"><i class="fa-solid fa-wallet"></i></div>
+                        <h4>pay</h4>
+                        <p>mobile money, card, or crypto – instant settlement</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- RESILIENCE BAND (reinforce Vuna's role) -->
-        <div class="resilience-band">
-            <div class="container">
-                <h3 class="fade-up">powered by vuna · trusted from farm to fork</h3>
-                <a href="https://www.vunamarketplace.com" class="btn-ghost fade-up" target="_blank">start trading →</a>
+        <!-- live band simulation – fresh element -->
+        <div class="live-band">
+            <div class="container live-ticker">
+                <div class="ticker-label">
+                    <div class="pulse"></div>
+                    <span>LIVE TRANSACTIONS</span>
+                </div>
+                <div class="ticker-messages">
+                    <span><i class="fa-regular fa-clock"></i> 2 min ago · 2.5t maize (Uganda) </span>
+                    <span><i class="fa-regular fa-clock"></i> 7 min ago · 850kg avocado (Kenya) </span>
+                    <span><i class="fa-regular fa-clock"></i> 15 min ago · 1.2t coffee (Ethiopia) </span>
+                </div>
             </div>
         </div>
 
-        <!-- value strip (tech/value props for the e‑commerce platform) -->
-        <section class="value-strip">
+        <!-- ecosystem pillars (replaces old value strip) – different style -->
+        <section class="pillars">
             <div class="container">
-                <div class="value-grid">
-                    <div class="value-block fade-up">
-                        <div class="value-number">01</div>
-                        <h5>digital storefronts</h5>
-                        <p>Every farmer gets a customizable online shop — set prices, share photos, and manage inventory via mobile.</p>
+                <div class="pillar-row">
+                    <div class="pillar fade-up">
+                        <div class="emoji-big">🌱</div>
+                        <h5>farmer first</h5>
+                        <p>We train cooperatives on phone photography, pricing, and responsive customer service.</p>
                     </div>
-                    <div class="value-block fade-up" style="animation-delay:0.1s">
-                        <div class="value-number">02</div>
-                        <h5>smart matching</h5>
-                        <p>Vuna’s algorithm connects buyers with the right harvest based on volume, quality, and location.</p>
+                    <div class="pillar fade-up" style="animation-delay:0.1s">
+                        <div class="emoji-big">🤝</div>
+                        <h5>buyer protection</h5>
+                        <p>Quality checks, sample shipping, and money‑back guarantee for B2B buyers.</p>
                     </div>
-                    <div class="value-block fade-up" style="animation-delay:0.2s">
-                        <div class="value-number">03</div>
-                        <h5>seamless settlement</h5>
-                        <p>Integrated mobile money / bank transfer — funds held in escrow until both parties confirm satisfaction.</p>
+                    <div class="pillar fade-up" style="animation-delay:0.2s">
+                        <div class="emoji-big">⚡</div>
+                        <h5>smart logistics</h5>
+                        <p>Real‑time routing via Ashoko; cold chain available for perishables.</p>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- resilience band (fresh shape) -->
+        <div class="resilience-fresh">
+            <div class="container">
+                <h3 class="fade-up">vunamarketplace.com – grow with us</h3>
+                <a href="https://www.vunamarketplace.com" class="btn-border fade-up" target="_blank">explore e‑commerce <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+
     </div>
     <!-- ========== END OF MIDDLE SECTION ========== -->
 
@@ -996,10 +1008,9 @@
         </div>
     </footer>
 
-    <!-- minimal script (mobile + animations) -->
+    <!-- script (mobile + animations) -->
     <script>
         (function() {
-            // mobile menu (from original)
             const mobileBtn = document.getElementById('mobileMenuBtn');
             const navMenu = document.getElementById('navMenu');
             const navOverlay = document.getElementById('navOverlay');
@@ -1019,14 +1030,12 @@
                 });
             }
 
-            // header shrink
             const header = document.getElementById('mainHeader');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) header.classList.add('scrolled');
                 else header.classList.remove('scrolled');
             });
 
-            // animations
             const animated = document.querySelectorAll('.fade-up');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
